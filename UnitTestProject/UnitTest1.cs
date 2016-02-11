@@ -11,8 +11,30 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-            Book book1 = new Book("Ae", 009);
-            Book book2 = new Book("Fairy tale", 1250);
+            try
+            {
+                var book1 = new Book("Ae", 1600);
+            }
+            catch (TitleTooShortException)
+            {
+                Console.WriteLine("Title too short");
+            }
+            catch (IncorrectYearException)
+            {
+                Console.WriteLine("Incorrect year");
+            }
+            try
+            {
+                var book2 = new Book("Fairy tale", 1009);
+            }
+            catch (TitleTooShortException)
+            {
+                Console.WriteLine("Title too short");
+            }
+            catch (IncorrectYearException)
+            {
+                Console.WriteLine("Incorrect year");
+            }
         }
     }
 }
